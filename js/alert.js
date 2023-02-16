@@ -1,12 +1,6 @@
 function submitWithAlert(form) {
-    var sum = 0;
-    var count = form.movie.length;
+    const selectedMovies = Array.from(form.movie).filter(movie => movie.checked);
+    const matchCount = selectedMovies.length;
 
-    for(var i = 0; i < count; i++ ){
-        if( form.movie[i].checked == true ){
-            sum += 1;
-        }
-    }
-    localStorage.setItem(name, JSON.stringify({name: name, match: sum}));
-    alert(form.name.value + "님, 저와 " + sum + "개의 취향이 같으시네요!");
+    alert(`${form.name.value}님, 저와 ${matchCount}개의 취향이 같으시네요!`);
 }
